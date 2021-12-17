@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import matplotlib.pyplot as plt
 pd.set_option('display.max_columns', None)
 
 st.title("3x+1 Tester")
@@ -42,7 +43,9 @@ def multipleTests(howMany):
   if graph == 0:
     pass
   elif graph == 1:
-    st.line_chart(toshow['# of Runs'])
+    fig, ax = plt.subplots()
+    ax.plot(toshow['# of Runs'])
+    st.pyplot(fig)
   return toshow
 
 def run():
