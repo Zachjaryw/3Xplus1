@@ -19,9 +19,9 @@ def test(startingValue):
 
 def singleValue(startingValue):
   values = test(startingValue)
-  st.text(values)
-  st.text(f'For {startingValue}, it took {len(values)} runs to return to 1.')
   data = pd.DataFrame({"Values":values})
+  st.dataframe(data)
+  st.text(f'For {startingValue}, it took {len(values)} runs to return to 1.')
   st.line_chart(data)
   return values
 
