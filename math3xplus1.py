@@ -1,7 +1,5 @@
-import matplotlib.pyplot as plt
 import streamlit as st
 import pandas as pd
-import time
 pd.set_option('display.max_columns', None)
 
 st.title("3x+1 Tester")
@@ -51,7 +49,6 @@ def run():
   howMany = st.text_input('How many values would you like to test up to?','10')
   howMany = int(howMany)
   toshow = multipleTests(howMany)
-  time.sleep(1.5)
   st.text("\n")
   st.markdown(f"Enter a value up to {howMany} to see a single test:")
   selection = st.text_input(f"\nEnter Value Below",toshow['# of Runs'].to_list().index(max(toshow['# of Runs']))+1)
@@ -60,7 +57,6 @@ def run():
     pass
   elif selection > 0 and selection <= howMany:
     singleValue(selection)
-    time.sleep(1.5)
   else:
     st.text('Invalid Input: Please try again')
 
